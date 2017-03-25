@@ -14,19 +14,14 @@ using namespace std;
 #define QTD_ESTADOS 168
 #define B 0
 #define QTD_SIMBOLOS 56
-#define FLAG "flag"
 
 int main() {
     cout << fixed;
     cout << setprecision(3);
-    unsigned int estadoMaquina;
-    unsigned int cabecaFita;
-    unsigned int posicaoSimboloLido;
     char alfabeto[QTD_SIMBOLOS] = {'\0', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ':', ';', '!', '=', '>', '<', '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '+', '-', '*', '/', '%', '^', '(', ')', '[', ']'};
     
     /// TABELA DE TRANSICAO
-    int tabelaTransicao[QTD_ESTADOS][QTD_SIMBOLOS] = {
-        {F, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 10, 11, 12, 12, 28, 44, 51, 61, 77, 82, 90, 19, 19, 96, 19, 19, 103, 112, 38, 49, 115, 19, 124, 137, 151, 156, 160, 163, 47, 19, 19, 15, 15, 16, 16, 17, 18, 14, 14, 14, 14},
+    int tabelaTransicao[QTD_ESTADOS][QTD_SIMBOLOS] = {{F, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 10, 11, 12, 12, 28, 44, 51, 61, 77, 82, 90, 19, 19, 96, 19, 19, 103, 112, 38, 49, 115, 19, 124, 137, 151, 156, 160, 163, 47, 19, 19, 15, 15, 16, 16, 17, 18, 14, 14, 14, 14},
         {V, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F},
         {V, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F},
         {V, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F},
@@ -195,103 +190,113 @@ int main() {
         {V, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, F, F, F, F, F, F, F, 32, 23, 23, 23, 23, 167, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, F, F, F, F, F, F, F, F, F, F},
         {V, 37, 37, 37, 37, 37, 37, 37, 37, 37, 37, F, F, F, F, F, F, F, 33, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, F, F, F, F, F, F, F, F, F, F}
     }; 
-    string entrada = leitura();
-    // getline(cin, entrada);
-    vector<string> entradas = split(entrada);
-    entradas.pop_back();
-    fflush(stdin);
-    clock_t tStart = clock();
-    bool simboloExiste[entrada.size()];
-    int simbolosEmInt[entrada.size()];
-    bool addSimboloFinal = true;
 
-/// ---------------VERIFICA SE OS SIMBOLOS EXISTEM NO E OS TRANSFORMA CADA UM EM INT------------------------------------
-    int last = 0;
+    string entrada = leitura(); // Envia para a função de ler o arquivo de texto
+    vector<string> entradas = split(entrada); // Envia para função split que separa todas as strings no espaço, retornando um vetor com todas as strings presentes no arquivo
+    entradas.pop_back(); // Remove simbolo invisivel do split;
+    clock_t tStart = clock(); // adicionado apenas para ter uma ideia de quanto tempo o programa demora para realizar sua função
+    bool addSimboloFinal = true; // esta variável serve para adicionar o 0 no final para saber quando termina a string
+    int last = 0; // Utilizado para saber qual é a posição final para depois ser acrecido de 1 e adicionar o 0 no final do array simbolosEmInt
+
+/// ---------------VERIFICA SE OS SIMBOLOS EXISTEM NO E OS TRANSFORMA CADA UM EM INT CORRESPONDENTE A SUA POSIÇÃO NO ARRAY DE ALFABETO------------------------------------
+
     for (int ent = 0; ent < entradas.size(); ++ent){
-        vector<int> saidas;
-        saidas.push_back(0);
-        for (int i = 0; i < entradas[ent].size(); ++i) {
-            // if(entradas[ent][i] == '\n')
-            //     entrada[ent][i] = "";
-            simboloExiste[i] = false;
-            for (int j = 0; j < QTD_SIMBOLOS ; ++j) {
-                if(entradas[ent][i] == alfabeto[j]){
-                    simboloExiste[i] = true;
-                    // cout << entrada[i] << FLAG << endl;
-                    simbolosEmInt[i] = j;
-                    last = i;
-                    break;
+            int tam = 0;
+            vector<int> saidas;
+            bool simboloExiste[entrada.size()];
+            saidas.push_back(0);
+            int simbolosEmInt[entrada.size()+1];
+            string entrada = entradas[ent];
+            for (int i = 0; i < entrada.size(); ++i){
+                simboloExiste[i] = false;
+                // cout << entrada[i] << endl;
+                for (int j = 0; j < QTD_SIMBOLOS; ++j){
+                    if(entrada[i] == '\0' || entrada[i] == '\n')
+                        continue;
+                    if(entrada[i] == alfabeto[j]){
+                        // cout << entrada[i] << " == " << alfabeto[j] << " ---> " << j << endl;
+                        simbolosEmInt[i] = j;
+                        simboloExiste[i] = true;
+                        addSimboloFinal = true;
+                        last = i;
+                        tam ++;
+                        // cout << "cflg" << endl;
+                        break;
+                    }
+                    else{
+                        // cout << "flg" << endl;
+                        simbolosEmInt[i] = 888;
+                        addSimboloFinal = false;
+                    }
                 }
+
             }
             
-            for (int l = 0; l < entradas[ent].size(); ++l) {
-                if(!simboloExiste[i]){
-                    simbolosEmInt[i] = 55;
-                    addSimboloFinal = false;
-                    cout << "Simbolo nao existente no alfabeto." << endl;
-                }
-            }
+/// ---------------------------------------ADICIONA O 0 NO FINAL DO ARRAY SE A PALAVRA CONTEM APENAS LETRAS PRESENTES NO ALFABETO-----------------------------------------------------
+           if (addSimboloFinal){
+             simbolosEmInt[++last] = 0;
+           }
+           // for (int i = 0; i < tam + 1; ++i){
+           //     cout << simbolosEmInt[i] << " ";
+           // }
+           // cout << endl;
 
-        }
-        /// --------------------------------------------------------------------------------------------
-       if (addSimboloFinal){
-         simbolosEmInt[++last] = 0;
-       }
-       // for (int i = 0; i < entradas[ent].size(); ++i){
-       //     cout << simbolosEmInt[i] << endl;
-       // }
+        /// FAZ UMA BUSCA NA MATRIZ PELOS INTEIROS CORRESPONTENTES A CADA POSIÇÃO DOS SIMBOLOS LIDOS.
+            bool mostador = true; // se a palavra for aceita ele mostra no final no cmd apenas para alertar que ela foi aceita, caso contrario não mostra
+            int proxLinha = 0; // Esta variável serve para saber qual a proxima linha da tabela que devemos ir
 
-    /// FAZ UMA BUSCA NA MATRIZ PELOS INTEIROS CORRESPONTENTES A CADA POSIÇÃO DOS SIMBOLOS LIDOS.
-        bool mostador = true;
-        int pi = 0;
-        for (int s = 0; s < entradas[ent].size() + 1 ; ++s) {
-            int atual = simbolosEmInt[s];
-           // cout << "Simb atual " << simbolosEmInt[s] << endl;
-            for (int i = pi; i < QTD_ESTADOS ; ++i){
-                if(tabelaTransicao[i][atual] != F){
-
-                    pi = tabelaTransicao[i][atual];
-                    // cout << "Proximo linha: " << pi << endl;
-                    saidas.push_back(pi);
-                    if(pi == 122){
-                      mostador = false;
-                      break;
-                    }
-                    break;
-                }
-                if(tabelaTransicao[i][atual] == F){
-                    saidas.push_back(F);
+            for (int i = proxLinha; i < entrada.size() + 1; ++i){
+                int simboloAtual = simbolosEmInt[i];
+                // cout << simboloAtual << endl;
+                if (tabelaTransicao[proxLinha][simboloAtual] == F){ // ERRO DE TRANSIÇÃO
+                    // cout << "Flag erro TRANSICAO" << endl;
                     mostador = false;
-                    //cout << "ERRO, NAO HA TRANSICAO PARA O SIMBOLO LIDO" << endl;
-                    
+                    saidas.push_back(F);
                     break;
                 }
-
-            }
-
-        }
-        if(mostador){
-            cout << "ENTRADA " << entradas[ent] << " ACEITA: ";
-            for (int j = 0; j < entradas[ent].size() + 1; ++j) {
-                if(saidas[j] >= 0){
-                    cout << saidas[j];
-                    cout << " ";
+                if (tabelaTransicao[proxLinha][simboloAtual] == E){ // ERRO DE SIMBOLO NÃO EXISTENTE
+                    // cout << "Flag erro SIMBOLO" << endl;
+                    mostador = false;
+                    saidas.push_back(E);
+                    break;
+                }
+                if (tabelaTransicao[proxLinha][simboloAtual] == V){ // PALAVRA ACEITA
+                    // cout << "Flag leitura aceita" << endl;
+                    break;
+                }
+                if (tabelaTransicao[proxLinha][simboloAtual] != F && tabelaTransicao[proxLinha][simboloAtual] != E){ // BUSCA NA TABELA
+                    proxLinha = tabelaTransicao[proxLinha][simboloAtual];
+                    // cout << "Proxima" << proxLinha << endl;
+                    saidas.push_back(proxLinha);
                 }
             }
-            // cout << endl;
-            // cout << endl;
-            //cout << "Tempo total para resolver a entrada: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl;
-                
-        }
-        escreve(entradas[ent], saidas);
-        cout << endl;
-        mostador = true;
-        
+/// --------------- MOSTRA A PALAVRA ACEITA ------------------------------------
+           if(mostador){
+                cout << "ENTRADA " << entradas[ent] << " ACEITA: ";
+                for (int j = 0; j < entradas[ent].size() + 1; ++j) {
+                    if(saidas[j] >= 0){
+                        cout << saidas[j];
+                        cout << " ";
+                    }
+                }
+                cout << endl;     
+            }
+/// --------------- MOSTRA VALORES ENVIADOS PARA ESCRITA ------------------------------------
+            cout << "Valores enviados para escrita: " << endl;
+            for (int t = 0; t < saidas.size() ; ++t){
+                cout << saidas[t] << " ";
+            }
+            cout << endl;
+
+            escreve(entradas[ent], saidas); // ENVIA PARA ESCRITA NO ARQUIVO OS VALORES
+            
+            mostador = true; // SE A PALAVRA FOR FALSA ELE VOLTA A SER VERDADEIRO PARA MOSTRAR A PROXIMA PALAVRA CASO ELA SEJA ACEITA
+            
         }
     
     /// --------------------------------------------------------------------------------------------
 
-
+    cout << "Tempo total para resolver as entradas: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl; // Tempo total
     return 0;
 
 }

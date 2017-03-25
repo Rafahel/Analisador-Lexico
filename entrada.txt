@@ -84,3 +84,10 @@ false
 ;
 
 !
+
+
+
+int main () [
+	bool
+	int
+]
