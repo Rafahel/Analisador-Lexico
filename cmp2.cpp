@@ -244,20 +244,20 @@ int main() {
         /// FAZ UMA BUSCA NA MATRIZ PELOS INTEIROS CORRESPONTENTES A CADA POSIÇÃO DOS SIMBOLOS LIDOS.
             bool mostador = true; // se a palavra for aceita ele mostra no final no cmd apenas para alertar que ela foi aceita, caso contrario não mostra
             int proxLinha = 0; // Esta variável serve para saber qual a proxima linha da tabela que devemos ir
-
+            
             for (int i = proxLinha; i < entrada.size() + 1; ++i){
                 int simboloAtual = simbolosEmInt[i];
                 // cout << simboloAtual << endl;
+                if (simboloAtual == E){ // ERRO DE SIMBOLO NÃO EXISTENTE
+                    // cout << "Flag erro SIMBOLO" << endl;
+                    mostador = false;
+                    saidas.push_back(E);
+                    break;
+                }
                 if (tabelaTransicao[proxLinha][simboloAtual] == F){ // ERRO DE TRANSIÇÃO
                     // cout << "Flag erro TRANSICAO" << endl;
                     mostador = false;
                     saidas.push_back(F);
-                    break;
-                }
-                if (tabelaTransicao[proxLinha][simboloAtual] == E){ // ERRO DE SIMBOLO NÃO EXISTENTE
-                    // cout << "Flag erro SIMBOLO" << endl;
-                    mostador = false;
-                    saidas.push_back(E);
                     break;
                 }
                 if (tabelaTransicao[proxLinha][simboloAtual] == V){ // PALAVRA ACEITA
@@ -271,22 +271,25 @@ int main() {
                 }
             }
 /// --------------- MOSTRA A PALAVRA ACEITA ------------------------------------
+            
            if(mostador){
                 cout << "ENTRADA " << entradas[ent] << " ACEITA: ";
                 for (int j = 0; j < entradas[ent].size() + 1; ++j) {
+                    
                     if(saidas[j] >= 0){
                         cout << saidas[j];
                         cout << " ";
                     }
+                    
                 }
                 cout << endl;     
             }
 /// --------------- MOSTRA VALORES ENVIADOS PARA ESCRITA ------------------------------------
-            cout << "Valores enviados para escrita: " << endl;
-            for (int t = 0; t < saidas.size() ; ++t){
-                cout << saidas[t] << " ";
-            }
-            cout << endl;
+            // cout << "Valores enviados para escrita: " << endl;
+            // for (int t = 0; t < saidas.size() ; ++t){
+            //     cout << saidas[t] << " ";
+            // }
+            // cout << endl;
 
             escreve(entradas[ent], saidas); // ENVIA PARA ESCRITA NO ARQUIVO OS VALORES
             
@@ -296,7 +299,7 @@ int main() {
     
     /// --------------------------------------------------------------------------------------------
 
-    cout << "Tempo total para resolver as entradas: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl; // Tempo total
+    cout << endl << "Tempo total para resolver as entradas: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl; // Tempo total
     return 0;
 
 }
