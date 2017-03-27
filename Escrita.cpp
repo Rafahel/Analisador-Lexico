@@ -20,7 +20,11 @@ void escreve(string entrada, vector<int> valores){
 
 		if(valores[i] != -1)
 			estado += boost::lexical_cast<std::string>(valores[i]);
-			mostra.insert(i, estado);
+			if(i < (valores.size() - 1)){
+				mostra.insert(i, estado);
+			} else {
+				mostra += estado;
+			}
 			saida << mostra;
 		if(valores[i] == 888){
 			saida << "; Erro Simbolo nao Existente";
