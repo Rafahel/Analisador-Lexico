@@ -12,12 +12,11 @@ using namespace std;
 #define E 888
 
 #define QTD_ESTADOS 168
-#define B 0
 #define QTD_SIMBOLOS 56
 
-int main() {
-    cout << fixed;
-    cout << setprecision(3);
+int main(){
+
+    zeraSaida();
     char alfabeto[QTD_SIMBOLOS] = {'\0', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ':', ';', '!', '=', '>', '<', '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '+', '-', '*', '/', '%', '^', '(', ')', '[', ']'};
     
     /// TABELA DE TRANSICAO

@@ -38,3 +38,13 @@ void escreve(string entrada, vector<int> valores){
 	saida.close();
 
 }
+
+void zeraSaida(){
+	ofstream saida;
+	saida.open("reconhecimento_lexico.txt");
+	saida << "";
+	saida.close();
+	saida.open("analise_lexica.txt");
+	saida << "";
+	saida.close();
+}
