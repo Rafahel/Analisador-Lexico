@@ -1,65 +1,65 @@
-int: 0i96n98t102
-double: 0d77o78u79b80l81e144
-char: 0c61h65a66r67
-bool: 0b51o56o57l67
-string: 0s137t138r141i142n143g144
-print: 0p115r118i119n120t121
-input: 0i96n98p99u100t101
-=: 0=11
-+: 0+15
--: 0-15
-*: 0*16
-/: 0/16
-%: 0%17
-^: 0^18
-==: 0=11=13
->: 0>12
-<: 0<12
->=: 0>12=13
-<=: 0<12=13
-!=: 0!10=13
-not: 0n38o42t43
-and: 0a44n45d46
-or: 0o49r50
-xor: 0x47o48r43
-nor: 0n38o42r43
-nand: 0n38a39n40d41
-if: 0i96f97
-else: 0e82l83s84e85
-elseif: 0e82l83s84e85i86f87
-for: 0f90o122r123
-to: 0t151o152
-do: 0d77o78
-step: 0s137t138e139p140
-begin: 0b51e52g53i54n55
-end: 0e82n88d89
-while: 0w163h164i165l166e167
-switch: 0s137w145i147t148c149h150
-case: 0c61a62s63e64
-(: 0(14
-): 0)14
-[: 0[14
-]: 0]14
-root: 0r124o135o136t159
-logarithm: 0l103o104g105a106r107i108t109h110m111
-parse: 0p115a116r117s92e22
-swap: 0s137w145a146p159
-var: 0v160a161r162
-const: 0c61o68n69s70t155
-:: 0:9
-main: 0m112a113i114n159
-return: 0r124e129t131u132r23n24
-pause: 0p115a116u117s92e22
-rest: 0r124e129s130t159
-uses: 0u156s157e158s159
-endl: 0e82n88d89l159
-cr: 0c61r76
-break: 0b51r58e59a60k155
-continue: 0c61o68n69t71i72n73u74e75
-random: 0r124a125n126d127o128m134
-file: 0f90i94l95e159
-true: 0t151r153u153e21
-false: 0f90a91l92s93e155
-.: 0.9
-;: 0;9
-!: 0!10
+int: 0int, i96nt, in98t, int102;
+double: 0double, d77ouble, do78uble, dou79ble, doub80le, doubl81e, double144;
+char: 0char, c61har, ch65ar, cha66r, char67;
+bool: 0bool, b51ool, bo56ol, boo57l, bool67;
+string: 0string, s137tring, st138ring, str141ing, stri142ng, strin143g, string144;
+print: 0print, p115rint, pr118int, pri119nt, prin120t, print121;
+input: 0input, i96nput, in98put, inp99ut, inpu100t, input101;
+=: 0=, =11;
++: 0+, +15;
+-: 0-, -15;
+*: 0*, *16;
+/: 0/, /16;
+%: 0%, %17;
+^: 0^, ^18;
+==: 0==, =11=, ==13;
+>: 0>, >12;
+<: 0<, <12;
+>=: 0>=, >12=, >=13;
+<=: 0<=, <12=, <=13;
+!=: 0!=, !10=, !=13;
+not: 0not, n38ot, no42t, not43;
+and: 0and, a44nd, an45d, and46;
+or: 0or, o49r, or50;
+xor: 0xor, x47or, xo48r, xor43;
+nor: 0nor, n38or, no42r, nor43;
+nand: 0nand, n38and, na39nd, nan40d, nand41;
+if: 0if, i96f, if97;
+else: 0else, e82lse, el83se, els84e, else85;
+elseif: 0elseif, e82lseif, el83seif, els84eif, else85if, elsei86f, elseif87;
+for: 0for, f90or, fo122r, for123;
+to: 0to, t151o, to152;
+do: 0do, d77o, do78;
+step: 0step, s137tep, st138ep, ste139p, step140;
+begin: 0begin, b51egin, be52gin, beg53in, begi54n, begin55;
+end: 0end, e82nd, en88d, end89;
+while: 0while, w163hile, wh164ile, whi165le, whil166e, while167;
+switch: 0switch, s137witch, sw145itch, swi147tch, swit148ch, switc149h, switch150;
+case: 0case, c61ase, ca62se, cas63e, case64;
+(: 0(, (14;
+): 0), )14;
+[: 0[, [14;
+]: 0], ]14;
+root: 0root, r124oot, ro135ot, roo136t, root159;
+logarithm: 0logarithm, l103ogarithm, lo104garithm, log105arithm, loga106rithm, logar107ithm, logari108thm, logarit109hm, logarith110m, logarithm111;
+parse: 0parse, p115arse, pa116rse, par117se, pars92e, parse22;
+swap: 0swap, s137wap, sw145ap, swa146p, swap159;
+var: 0var, v160ar, va161r, var162;
+const: 0const, c61onst, co68nst, con69st, cons70t, const155;
+:: 0:, :9;
+main: 0main, m112ain, ma113in, mai114n, main159;
+return: 0return, r124eturn, re129turn, ret131urn, retu132rn, retur23n, return24;
+pause: 0pause, p115ause, pa116use, pau117se, paus92e, pause22;
+rest: 0rest, r124est, re129st, res130t, rest159;
+uses: 0uses, u156ses, us157es, use158s, uses159;
+endl: 0endl, e82ndl, en88dl, end89l, endl159;
+cr: 0cr, c61r, cr76;
+break: 0break, b51reak, br58eak, bre59ak, brea60k, break155;
+continue: 0continue, c61ontinue, co68ntinue, con69tinue, cont71inue, conti72nue, contin73ue, continu74e, continue75;
+random: 0random, r124andom, ra125ndom, ran126dom, rand127om, rando128m, random134;
+file: 0file, f90ile, fi94le, fil95e, file159;
+true: 0true, t151rue, tr153ue, tru153e, true21;
+false: 0false, f90alse, fa91lse, fal92se, fals93e, false155;
+.: 0., .9;
+;: 0;, ;9;
+!: 0!, !10;

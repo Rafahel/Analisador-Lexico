@@ -1,5 +1,7 @@
 #include "Escrita.h"
 #include <ctime>
+#include <boost/lexical_cast.hpp>
+
 void escreve(string entrada, vector<int> valores){
 
 	time_t t = time(0);   // get time now
@@ -10,24 +12,28 @@ void escreve(string entrada, vector<int> valores){
 	// cout << valores[valores.size() -1] << " FL" <<endl ;
 	saida << entrada << ": ";
 	int passadas = 0;
+	string mostra;
+	string estado;
 	for (int i = 0; i < valores.size() ; ++i){
+		mostra = entrada;
+		estado = "";
 
 		if(valores[i] != -1)
-			saida << valores[i];
-		if(i < entrada.size())
-			saida << entrada[i];
+			estado += boost::lexical_cast<std::string>(valores[i]);
+			mostra.insert(i, estado);
+			saida << mostra;
 		if(valores[i] == 888){
 			saida << "; Erro Simbolo nao Existente";
 			break;
-		}
-
-		if(valores[i] == 999){
+		} else if(valores[i] == 999){
 			saida << "; Erro de Transicao";
 			break;
 		}
-
+		if(i != (valores.size() - 1)){
+			saida << ", ";
+		}
 	}
-	saida << "\n";
+	saida << ";\n";
 	
 	saida.close();
 	if(valores[valores.size() - 1] < 0)
