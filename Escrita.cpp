@@ -51,16 +51,15 @@ void escreve(string entrada, vector<int> valores){
 		mostra = entrada;
 		estado = "";
 
-		if(valores[i] != -1)
-            estado += NumberToString(valores[i]);
+		if(valores[i] != -1) estado += NumberToString(valores[i]);
 
-        if(i < (valores.size() - 1)){
-            mostra.insert(i, estado);
-        } else {
-            mostra += estado;
-        }
+		if(i < (valores.size() - 1)){
+		    mostra.insert(i, estado);
+		} else {
+		    mostra += estado;
+		}
 
-        saida << mostra;
+		saida << mostra;
 
 		if(valores[i] == 888){
 			saida << "; Erro Simbolo nao Existente";
@@ -68,16 +67,16 @@ void escreve(string entrada, vector<int> valores){
 		} else if(valores[i] == 999){
 			saida << "; Erro de Transicao";
 			break;
+		} else {
+			saida << "; ->";
+			saida << estados[valores.back() - 1];
 		}
 
 		if(i != (valores.size() - 1)){
 			saida << ", ";
 		}
 	}
-    saida << "; ->";
-    saida << estados[valores.back() - 1];
-	saida << "\n";
-	
+	saida << "\n";	
 	saida.close();
 	if(valores[valores.size() - 1] < 0)
 		valores.pop_back();
