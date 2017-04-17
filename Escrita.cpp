@@ -14,6 +14,32 @@ void escreve(string entrada, vector<int> valores){
 
 	time_t t = time(0);   // get time now
     struct tm * now = localtime( & t );
+
+    string estados[176] = {"literal_numerico", "literal_numerico", "literal_numerico", "literal_numerico", "", "literal_numerico",
+        "literal_numerico", "literal_numerico", "outros_tokens", "negacao", "atribuicao", "op_relacional","op_relacional", "agrupador",
+        "op_arit_p4", "op_arit_p3", "op_arit_p2", "op_arit_p1", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "op_logico", "identificador", "op_logico", "identificador",
+        "identificador", "op_logico", "identificador", "identificador", "identificador", "op_logico", "identificador", "identificador",
+        "identificador", "identificador", "inicio_bloco", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "estr_cond_aninhada", "identificador", "identificador",
+        "tipo_dado", "identificador", "identificador", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "controle_fluxo", "manip_arquivo", "identificador", "repeticao_controle", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "desvio_cond", "identificador", "desvio_cond",
+        "identificador", "fim_bloco", "identificador", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "desvio_cond", "identificador", "identificador", "identificador", "entrada",
+        "tipo_dado", "identificador", "identificador", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "func_mat", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "identificador", "saida", "identificador",
+        "repeticao_controle", "identificador", "identificador", "identificador", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "func_mat", "identificador", "identificador", "identificador",
+        "identificador", "identificador", "repeticao_controle", "identificador", "identificador", "identificador", "tipo_dado", "identificador",
+        "identificador", "identificador", "identificador", "identificador", "estr_cond_aninhada", "identificador", "repeticao_controle",
+        "identificador", "identificador", "outros_tokens", "identificador", "identificador", "identificador", "outros_tokens",
+        "identificador", "identificador", "outros_tokens", "identificador", "identificador", "identificador", "identificador",
+        "repeticao_test_ini", "func_mat", "controle_fluxo", "bool", "identificador", "identificador", "controle_fluxo",
+        "manip_arquivo", "bool", "identificador"};
    
 	ofstream saida;
 	saida.open("reconhecimento_lexico.txt",fstream::app);
@@ -48,7 +74,9 @@ void escreve(string entrada, vector<int> valores){
 			saida << ", ";
 		}
 	}
-	saida << ";\n";
+    saida << "; ->";
+    saida << estados[valores.back() - 1];
+	saida << "\n";
 	
 	saida.close();
 	if(valores[valores.size() - 1] < 0)
