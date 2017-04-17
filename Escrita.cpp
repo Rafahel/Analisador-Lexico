@@ -1,6 +1,14 @@
 #include "Escrita.h"
 #include <ctime>
-#include <boost/lexical_cast.hpp>
+#include <sstream>
+
+template <typename T>
+
+std::string NumberToString ( T Number ){
+    std::ostringstream ss;
+    ss << Number;
+    return ss.str();
+}
 
 void escreve(string entrada, vector<int> valores){
 
@@ -9,7 +17,6 @@ void escreve(string entrada, vector<int> valores){
    
 	ofstream saida;
 	saida.open("reconhecimento_lexico.txt",fstream::app);
-	// cout << valores[valores.size() -1] << " FL" <<endl ;
 	saida << entrada << ": ";
 	int passadas = 0;
 	string mostra;
@@ -19,13 +26,16 @@ void escreve(string entrada, vector<int> valores){
 		estado = "";
 
 		if(valores[i] != -1)
-			estado += boost::lexical_cast<std::string>(valores[i]);
-			if(i < (valores.size() - 1)){
-				mostra.insert(i, estado);
-			} else {
-				mostra += estado;
-			}
-			saida << mostra;
+            estado += NumberToString(valores[i]);
+
+        if(i < (valores.size() - 1)){
+            mostra.insert(i, estado);
+        } else {
+            mostra += estado;
+        }
+
+        saida << mostra;
+
 		if(valores[i] == 888){
 			saida << "; Erro Simbolo nao Existente";
 			break;
@@ -33,6 +43,7 @@ void escreve(string entrada, vector<int> valores){
 			saida << "; Erro de Transicao";
 			break;
 		}
+
 		if(i != (valores.size() - 1)){
 			saida << ", ";
 		}
