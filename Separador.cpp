@@ -3,7 +3,7 @@ vector<string> split(string str){
 
     vector<string> strings;
     string str2 = "";
-    for (int i = 0; i < str.size() + 1 ; ++i) {
+    for (int i = 0; i < str.size()  ; ++i) {
         try {
 //            cout << i << endl;
             if( str[i] != ' ' && str[i] != '\0' && str[i] != '\n'){
@@ -12,7 +12,7 @@ vector<string> split(string str){
             }
             if(str[i] == ' ' || str[i] == '\0' || str[i] == '\n')
             {
-//                cout << str2 << endl;
+                cout << str2 << endl;
                 strings.push_back(str2);
                 str2 = "";
             }
@@ -28,6 +28,8 @@ vector<string> split(string str){
         }
 
     }
+    cout << "Tamanho do vector" << strings.size() << endl;
+    strings.pop_back();
     return strings;
 
 
