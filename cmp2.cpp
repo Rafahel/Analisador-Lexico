@@ -1,16 +1,16 @@
 #include <iostream>
-#include <cstdio>
 #include <vector>
 #include <ctime>
 #include <iomanip>
 #include "Separador.h"
 #include "Leitura.h"
 #include "Escrita.h"
+
 using namespace std;
+
 #define V -1
 #define F 999
 #define E 888
-
 #define QTD_ESTADOS 177
 #define QTD_SIMBOLOS 56
 
@@ -20,7 +20,7 @@ int main(){
     char alfabeto[QTD_SIMBOLOS] = {'\0', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ':', ';', '!', '=', '>', '<', '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '+', '-', '*', '/', '%', '^', '(', ')', '[', ']'};
     
     /// TABELA DE TRANSICAO
-      int tabelaTransicao[QTD_ESTADOS][QTD_SIMBOLOS] = {
+    int tabelaTransicao[QTD_ESTADOS][QTD_SIMBOLOS] = {
             {F, 4,  1,  1,  1,  1,  1,  1,  1,  1,  1, 9, 9, 9, 10, 11, 12, 12, 28, 44,  51, 61,  77,  82,  90, 19,  19,  96,  19, 19,  103, 112, 38,  49,  115, 19, 124, 137, 151, 156, 160, 163, 47, 19, 19, 15, 15, 16, 16, 17, 18, 14, 14, 14, 14},
             {V, 2,  2,  2,  2,  2,  2,  2,  2,  2,  2, 5,  F, F, F, F,  F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F,                                                 F, F, F, F, F, F, F, F, F, F},
             {V, 3,  3,  3,  3,  3,  3,  3,  3,  3,  3, 5,  F, F, F, F,  F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F, F,                                                 F, F, F, F, F, F, F, F, F, F},
@@ -202,7 +202,7 @@ int main(){
 
     string entrada = leitura(); // Envia para a função de ler o arquivo de texto
     vector<string> entradas = split(entrada); // Envia para função split que separa todas as strings no espaço, retornando um vetor com todas as strings presentes no arquivo
-    // entradas.pop_back(); // Remove simbolo invisivel do split;
+    entradas.pop_back(); // Remove simbolo invisivel do split;
     clock_t tStart = clock(); // adicionado apenas para ter uma ideia de quanto tempo o programa demora para realizar sua função
     bool addSimboloFinal = true; // esta variável serve para adicionar o 0 no final para saber quando termina a string
     int last = 0; // Utilizado para saber qual é a posição final para depois ser acrecido de 1 e adicionar o 0 no final do array simbolosEmInt
