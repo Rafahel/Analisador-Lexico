@@ -5,7 +5,7 @@ vector<string> split(string str){
     string str2 = "";
     for (int i = 0; i < str.size() ; ++i) {
         try {
-           cout << str[i] << endl;
+           // cout << str[i] << endl;
             if( str[i] != ' ' && str[i] != '\0' && str[i] != '\n'){
                 str2 += str[i];
 //                cout <<  str[i] << endl;
@@ -28,10 +28,10 @@ vector<string> split(string str){
         }
 
     }
-    cout << "STRINGS" << endl;
-    for (int i = 0; i < strings.size(); ++i){
-        cout << strings[i] << endl;
-    }
+    // cout << "STRINGS" << endl;
+    // for (int i = 0; i < strings.size(); ++i){
+    //     cout << strings[i] << endl;
+    // }
     return strings;
 
 

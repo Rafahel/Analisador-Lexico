@@ -307,7 +307,7 @@ int main(){
     
     /// --------------------------------------------------------------------------------------------
 
-    cout << endl << "Tempo total para resolver as entradas: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl; // Tempo total
+    cout << endl << "Tempo total para resolver as " << entradas.size() << " entradas: " << (double)(clock() - tStart)/CLOCKS_PER_SEC << endl; // Tempo total
     return 0;
 
 }
