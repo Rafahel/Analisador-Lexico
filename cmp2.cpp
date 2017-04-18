@@ -202,7 +202,6 @@ int main(){
 
     string entrada = leitura(); // Envia para a função de ler o arquivo de texto
     vector<string> entradas = split(entrada); // Envia para função split que separa todas as strings no espaço, retornando um vetor com todas as strings presentes no arquivo
-    entradas.pop_back(); // Remove simbolo invisivel do split;
     clock_t tStart = clock(); // adicionado apenas para ter uma ideia de quanto tempo o programa demora para realizar sua função
     bool addSimboloFinal = true; // esta variável serve para adicionar o 0 no final para saber quando termina a string
     int last = 0; // Utilizado para saber qual é a posição final para depois ser acrecido de 1 e adicionar o 0 no final do array simbolosEmInt

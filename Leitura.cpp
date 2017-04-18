@@ -11,10 +11,11 @@ string leitura(){
 	if(arquivo.is_open()){
 		//cout << "Palavras Lidas: " << endl << endl;
 		while(!arquivo.eof()){
-			arquivo >> p;
+			arquivo >> p;				
 			//cout << p << endl;
 			texto += p;
 			texto += "\n";
+
 			int siz = p.size();
 			if(siz > maior){
 				maior = p.size();

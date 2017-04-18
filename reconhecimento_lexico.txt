@@ -1,65 +1,65 @@
-int: 0int, i96nt, in98t, int102;
-double: 0double, d77ouble, do78uble, dou79ble, doub80le, doubl81e, double144;
-char: 0char, c61har, ch65ar, cha66r, char67;
-bool: 0bool, b51ool, bo56ol, boo57l, bool67;
-string: 0string, s137tring, st138ring, str141ing, stri142ng, strin143g, string144;
-print: 0print, p115rint, pr118int, pri119nt, prin120t, print121;
-input: 0input, i96nput, in98put, inp99ut, inpu100t, input101;
-=: 0=, =11;
-+: 0+, +15;
--: 0-, -15;
-*: 0*, *16;
-/: 0/, /16;
-%: 0%, %17;
-^: 0^, ^18;
-==: 0==, =11=, ==13;
->: 0>, >12;
-<: 0<, <12;
->=: 0>=, >12=, >=13;
-<=: 0<=, <12=, <=13;
-!=: 0!=, !10=, !=13;
-not: 0not, n38ot, no42t, not43;
-and: 0and, a44nd, an45d, and46;
-or: 0or, o49r, or50;
-xor: 0xor, x47or, xo48r, xor43;
-nor: 0nor, n38or, no42r, nor43;
-nand: 0nand, n38and, na39nd, nan40d, nand41;
-if: 0if, i96f, if97;
-else: 0else, e82lse, el83se, els84e, else85;
-elseif: 0elseif, e82lseif, el83seif, els84eif, else85if, elsei86f, elseif87;
-for: 0for, f90or, fo122r, for123;
-to: 0to, t151o, to152;
-do: 0do, d77o, do78;
-step: 0step, s137tep, st138ep, ste139p, step140;
-begin: 0begin, b51egin, be52gin, beg53in, begi54n, begin55;
-end: 0end, e82nd, en88d, end89;
-while: 0while, w163hile, wh164ile, whi165le, whil166e, while167;
-switch: 0switch, s137witch, sw145itch, swi147tch, swit148ch, switc149h, switch150;
-case: 0case, c61ase, ca62se, cas63e, case64;
-(: 0(, (14;
-): 0), )14;
-[: 0[, [14;
-]: 0], ]14;
-root: 0root, r124oot, ro135ot, roo136t, root159;
-logarithm: 0logarithm, l103ogarithm, lo104garithm, log105arithm, loga106rithm, logar107ithm, logari108thm, logarit109hm, logarith110m, logarithm111;
-parse: 0parse, p115arse, pa116rse, par117se, pars92e, parse22;
-swap: 0swap, s137wap, sw145ap, swa146p, swap159;
-var: 0var, v160ar, va161r, var162;
-const: 0const, c61onst, co68nst, con69st, cons70t, const155;
-:: 0:, :9;
-main: 0main, m112ain, ma113in, mai114n, main159;
-return: 0return, r124eturn, re129turn, ret131urn, retu132rn, retur23n, return24;
-pause: 0pause, p115ause, pa116use, pau117se, paus92e, pause22;
-rest: 0rest, r124est, re129st, res130t, rest159;
-uses: 0uses, u156ses, us157es, use158s, uses159;
-endl: 0endl, e82ndl, en88dl, end89l, endl159;
-cr: 0cr, c61r, cr76;
-break: 0break, b51reak, br58eak, bre59ak, brea60k, break155;
-continue: 0continue, c61ontinue, co68ntinue, con69tinue, cont71inue, conti72nue, contin73ue, continu74e, continue75;
-random: 0random, r124andom, ra125ndom, ran126dom, rand127om, rando128m, random134;
-file: 0file, f90ile, fi94le, fil95e, file159;
-true: 0true, t151rue, tr153ue, tru153e, true21;
-false: 0false, f90alse, fa91lse, fal92se, fals93e, false155;
-.: 0., .9;
-;: 0;, ;9;
-!: 0!, !10;
+int: 0int, i96nt, in98t, int102; ->tipo_dado
+double: 0double, d77ouble, do78uble, dou79ble, doub80le, doubl81e, double144; ->tipo_dado
+char: 0char, c61har, ch65ar, cha66r, char67; ->tipo_dado
+bool: 0bool, b51ool, bo56ol, boo57l, bool67; ->tipo_dado
+string: 0string, s137tring, st138ring, str141ing, stri142ng, strin143g, string144; ->tipo_dado
+print: 0print, p115rint, pr118int, pri119nt, prin120t, print121; ->saida
+input: 0input, i96nput, in98put, inp99ut, inpu100t, input101; ->entrada
+=: 0=, =11; ->atribuicao
++: 0+, +15; ->op_arit_p4
+-: 0-, -15; ->op_arit_p4
+*: 0*, *16; ->op_arit_p3
+/: 0/, /16; ->op_arit_p3
+%: 0%, %17; ->op_arit_p2
+^: 0^, ^18; ->op_arit_p1
+==: 0==, =11=, ==13; ->op_relacional
+>: 0>, >12; ->op_relacional
+<: 0<, <12; ->op_relacional
+>=: 0>=, >12=, >=13; ->op_relacional
+<=: 0<=, <12=, <=13; ->op_relacional
+!=: 0!=, !10=, !=13; ->op_relacional
+not: 0not, n38ot, no42t, not43; ->op_logico
+and: 0and, a44nd, an45d, and46; ->op_logico
+or: 0or, o49r, or50; ->op_logico
+xor: 0xor, x47or, xo48r, xor43; ->op_logico
+nor: 0nor, n38or, no42r, nor43; ->op_logico
+nand: 0nand, n38and, na39nd, nan40d, nand41; ->op_logico
+if: 0if, i96f, if97; ->desvio_cond
+else: 0else, e82lse, el83se, els84e, else85; ->desvio_cond
+elseif: 0elseif, e82lseif, el83seif, els84eif, else85if, elsei86f, elseif87; ->desvio_cond
+for: 0for, f90or, fo122r, for123; ->repeticao_controle
+to: 0to, t151o, to152; ->repeticao_controle
+do: 0do, d77o, do78; ->repeticao_controle
+step: 0step, s137tep, st138ep, ste139p, step140; ->repeticao_controle
+begin: 0begin, b51egin, be52gin, beg53in, begi54n, begin55; ->inicio_bloco
+end: 0end, e82nd, en88d, end89; ->fim_bloco
+while: 0while, w163hile, wh164ile, whi165le, whil166e, while167; ->repeticao_test_ini
+switch: 0switch, s137witch, sw145itch, swi147tch, swit148ch, switc149h, switch150; ->estr_cond_aninhada
+case: 0case, c61ase, ca62se, cas63e, case64; ->estr_cond_aninhada
+(: 0(, (14; ->agrupador
+): 0), )14; ->agrupador
+[: 0[, [14; ->agrupador
+]: 0], ]14; ->agrupador
+root: 0root, r124oot, ro135ot, roo136t, root168; ->func_mat
+logarithm: 0logarithm, l103ogarithm, lo104garithm, log105arithm, loga106rithm, logar107ithm, logari108thm, logarit109hm, logarith110m, logarithm111; ->func_mat
+parse: 0parse, p115arse, pa116rse, par117se, pars176e, parse155; ->outros_tokens
+swap: 0swap, s137wap, sw145ap, swa146p, swap159; ->outros_tokens
+var: 0var, v160ar, va161r, var162; ->outros_tokens
+const: 0const, c61onst, co68nst, con69st, cons70t, const155; ->outros_tokens
+:: 0:, :9; ->outros_tokens
+main: 0main, m112ain, ma113in, mai114n, main159; ->outros_tokens
+return: 0return, r124eturn, re129turn, ret131urn, retu132rn, retur133n, return169; ->controle_fluxo
+pause: 0pause, p115ause, pa116use, pau171se, paus172e, pause173; ->controle_fluxo
+rest: 0rest, r124est, re129st, res130t, rest159; ->outros_tokens
+uses: 0uses, u156ses, us157es, use158s, uses159; ->outros_tokens
+endl: 0endl, e82ndl, en88dl, end89l, endl174; ->manip_arquivo
+cr: 0cr, c61r, cr76; ->manip_arquivo
+break: 0break, b51reak, br58eak, bre59ak, brea60k, break173; ->controle_fluxo
+continue: 0continue, c61ontinue, co68ntinue, con69tinue, cont71inue, conti72nue, contin73ue, continu74e, continue75; ->controle_fluxo
+random: 0random, r124andom, ra125ndom, ran126dom, rand127om, rando128m, random134; ->func_mat
+file: 0file, f90ile, fi94le, fil95e, file174; ->manip_arquivo
+true: 0true, t151rue, tr153ue, tru154e, true175; ->bool
+false: 0false, f90alse, fa91lse, fal92se, fals93e, false170; ->bool
+.: 0., .9; ->outros_tokens
+;: 0;, ;9; ->outros_tokens
+!: 0!, !10; ->negacao
