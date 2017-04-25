@@ -8,7 +8,7 @@ add_executable(Analisador_Lexico ${SOURCE_FILES})
 
 add_custom_command(
         TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        COMMAND ${CMAKE_COMMAND} -E copy
         ${CMAKE_SOURCE_DIR}/*.txt
         $<TARGET_FILE_DIR:${PROJECT_NAME}>
 )
